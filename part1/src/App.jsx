@@ -7,20 +7,20 @@ const App = () => {
       exercises: 10
     },
     {
-    name: 'Using props to pass data',
-    exercises: 7
+      name: 'Using props to pass data',
+      exercises: 7
     }, 
     {
       name: 'state of a component',
       exercises: 14
     }
   ]
-  
+  console.log()
   return (
     <>
       <Header  course={course} />
       <Content parts={parts} />
-      <Total exercises={parts.exercises}/>
+      <Total parts={parts}/>
     </>
   );
 }
@@ -32,29 +32,28 @@ const Header = (props) => {
   )
 }
 
-const Content = (parts) => {
-  
+const Content = ({parts}) => {
   return(
     <>
-    <Part parts={parts[0]} />
-    <Part parts={parts[1]} />
-    <Part parts={parts[2]} />
+    <Part part={parts[0]} />
+    <Part part={parts[1]} />
+    <Part part={parts[2]} />
     </>
   )
 }
 
-const Part = (parts) => {
+const Part = ({part}) => {
   return (
     <p>
-        {parts.name} {parts.exercises}
+        {part.name} {part.exercises}
     </p>  
   )
 }
 
-const Total = (exercises) => {
+const Total = ({parts}) => {
   return (
     <>
-    <p>Number of excercises {exercises[0] + exercises[1] + exercises[2]}</p>
+    <p>Number of excercises {parts[0].exercises + parts[1].exercises + parts[2].exercises}</p>
     </>
   )
 }
