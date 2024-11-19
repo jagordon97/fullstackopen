@@ -13,7 +13,7 @@ const Statistics = ({feedback}) => {
   const posPercent = (100 * feedback[0]) / total;
 
 
-
+if(total > 0){
   return (
     <>
       <h2>Stats</h2>
@@ -25,6 +25,13 @@ const Statistics = ({feedback}) => {
       <p>Percentage of Positive: {posPercent}</p>
     </>
   )
+}
+return (
+    <>
+      <p>No feedback has been given</p>
+    </>
+  )
+  
 }
 
 const App = () => {
